@@ -29,7 +29,9 @@ Follow these steps to setup and run the service:
     python src/server.py
     ```
 
-    Once the serveris up and running, you can start the client by running the following command in a separate terminal instance:
+    Once the server is up and running, you can start the client by running the following command in a separate terminal instance:
     ```bash
     python src/client.py
     ```
+
+    Once the client completes its execution, a new `output` directory should have been generated, containing upscaled versions (4x) of the images in `input`. For each input image, e.g. `input/img1.png`, the corresponding upscaled image is formatted as follows: `output/img1-hr.png`.
