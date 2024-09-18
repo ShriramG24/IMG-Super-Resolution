@@ -21,5 +21,8 @@ if __name__ == "__main__":
             name = filename.split(".")[0].split("/")[-1]
             inputs.append({"file_path": f"{INPUT_DIR}/{filename}"})
 
-    response = client.request(inputs, data_type, {"output_dir": OUTPUT_DIR})
-    print(response)
+    if len(inputs) == 0:
+        print("No images found in the input directory.")
+    else:
+        response = client.request(inputs, data_type, {"output_dir": OUTPUT_DIR})
+        print(response)
