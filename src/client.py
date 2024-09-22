@@ -1,14 +1,29 @@
+import argparse
 import os
 import shutil
 
 from flask_ml.flask_ml_client import MLClient
 from flask_ml.flask_ml_server.constants import DataTypes
 
-INPUT_DIR = "input"
 OUTPUT_DIR = "output"
 SR_MODEL_URL = "http://localhost:5000/super-resolution"
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Super Resolution Client")
+    parser.add_argument(
+        "--input_dir",
+        type=str,
+        default="input",
+        help="Path to the input directory containing images.",
+    )
+    args = parser.parse_args()
+
+    INPUT_DIR = args.input_dir
+
+    if not os.path.exists(INPUT_DIR):
+        print(f"Error: The input directory '{INPUT_DIR}' does not exist.")
+        exit(1)
+
     if os.path.exists(OUTPUT_DIR):
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR)
