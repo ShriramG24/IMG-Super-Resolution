@@ -18,7 +18,7 @@ Follow these steps to setup and run the service:
     pip install --no-deps -r no-deps.txt
     ```
 
-3. **Prepare Input Images**
+3. **Prepare Input Images:**
 
     Add any low-resolution images that need to be upscaled to the top-level of the `input` directory. All image files are expected to be in one of these formats: `.png`, `.jpg`, or `.jpeg`.
 
