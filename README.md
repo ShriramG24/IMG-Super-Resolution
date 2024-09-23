@@ -29,9 +29,9 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
     python src/server.py
     ```
 
-    Once the server is up and running, you can start the client by running the following command in a separate terminal instance. The argument `--input_dir` has a default value of `input`, but you can pass in any valid directory path:
+    Once the server is up and running, you can start the client by running the following command in a separate terminal instance. The argument `--input-dir` has a default value of `input`, but you can pass in any valid directory path:
     ```bash
-    python src/client.py --input_dir input
+    python src/client.py --input-dir input
     ```
 
     Once the client completes its execution, a new `output` directory should have been generated, containing upscaled versions (4x) of the images in `input`. For each input image, e.g. `input/img1.png`, the corresponding upscaled image is formatted as follows: `output/img1-hr.png`.
