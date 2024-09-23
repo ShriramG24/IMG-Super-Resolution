@@ -11,7 +11,7 @@ SR_MODEL_URL = "http://localhost:5000/super-resolution"
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Super Resolution Client")
     parser.add_argument(
-        "--input_dir",
+        "--input-dir",
         type=str,
         default="input",
         help="Path to the input directory containing images.",
