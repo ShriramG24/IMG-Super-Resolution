@@ -33,6 +33,7 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
     - `/run-inference` [POST]: Runs super resolution on the images in the specified input directory.
     - `/health` [GET]: Returns `200 OK` if the server is running.
 
+    `src/client.py` hasn't been updated to work with this modified version, so please do not try using this.
     <!-- Once the server is up and running, you can start the client by running the following command in a separate terminal instance. The argument `--input-dir` has a default value of `input`, but you can pass in any valid directory path:
     ```bash
     python src/client.py --input-dir input
