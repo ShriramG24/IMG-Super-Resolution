@@ -1,4 +1,4 @@
-# IMG Super Resolution
+# IMG Super Resolution -- Modified to Work with [RescueBox Desktop](https://github.com/UMass-Rescue/RescueBox-Desktop)
 
 This simple project aims to utilize an existing state-of-the-art pre-trained model to upscale low-resolution images to a higher resolution, which is known in the computer vision community as **image super resolution**. The model used here is a Residual-in-Residual Dense Network (RRDN), which is based on an ESRGAN architecture. More about the specific implementation in this project can be found in the following [repository](https://github.com/idealo/image-super-resolution). 
 
@@ -29,9 +29,13 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
     python src/server.py
     ```
 
-    Once the server is up and running, you can start the client by running the following command in a separate terminal instance. The argument `--input-dir` has a default value of `input`, but you can pass in any valid directory path:
+    By default, the server runs on `http://localhost:5000` and provides two endpoints:
+    - `/run-inference` [POST]: Runs super resolution on the images in the specified input directory.
+    - `/health` [GET]: Returns `200 OK` if the server is running.
+
+    <!-- Once the server is up and running, you can start the client by running the following command in a separate terminal instance. The argument `--input-dir` has a default value of `input`, but you can pass in any valid directory path:
     ```bash
     python src/client.py --input-dir input
-    ```
+    ``` -->
 
-    Once the client completes its execution, a new `output` directory should have been generated, containing upscaled versions (4x) of the images in `input`. For each input image, e.g. `input/img1.png`, the corresponding upscaled image is formatted as follows: `output/img1-hr.png`.
+    Once the job completes its execution, a new `output` directory should have been generated, containing upscaled versions of the images in `input`. For each input image, e.g. `input/img1.png`, the corresponding upscaled image is formatted as follows: `output/img1-hr.png`.
