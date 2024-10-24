@@ -7,7 +7,7 @@ certifi==2024.8.30
 charset-normalizer==3.3.2
 click==8.1.7
 Flask==3.0.3
-flask_ml==0.0.9
+flask_ml==0.2.2
 flatbuffers==24.3.25
 gast==0.6.0
 google-pasta==0.2.0
@@ -23,7 +23,6 @@ Markdown==3.7
 markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 mdurl==0.1.2
-ml-dtypes==0.4.1
 mypy-extensions==1.0.0
 namex==0.0.8
 numpy==1.26.4
@@ -41,9 +40,8 @@ PyYAML==6.0.2
 requests==2.32.3
 rich==13.8.1
 six==1.16.0
-tensorboard==2.17.1
 tensorboard-data-server==0.7.2
-tensorflow==2.17.0
+tensorflow==2.16.2
 tensorflow-io-gcs-filesystem==0.37.1
 termcolor==2.4.0
 tomli==2.0.1
