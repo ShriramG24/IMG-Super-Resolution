@@ -24,7 +24,7 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
 
     Add any low-resolution images that need to be upscaled to the top-level of the `input` directory. You can also specify a different input directory by passing in a path as a command-line argument to the CLI tool (shown further below). All image files are expected to be in one of these formats: `.png`, `.jpg`, or `.jpeg`.
 
-4. **Run the Application via CLI:**
+4. **Test Run the Application via CLI:**
 
     Make sure you are in the root directory, and run this command:
 
