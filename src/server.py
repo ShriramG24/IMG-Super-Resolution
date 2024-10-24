@@ -10,6 +10,11 @@ from flask_ml.flask_ml_server.models import (
     TaskSchema,
     InputSchema,
     InputType,
+    ParameterSchema,
+    EnumParameterDescriptor,
+    EnumVal,
+    RangedFloatParameterDescriptor,
+    FloatRangeDescriptor,
 )
 
 from .super_resolution import SuperResolution
@@ -34,7 +39,29 @@ def create_task_schema() -> TaskSchema:
                 subtitle="Directory to save the upscaled images",
             ),
         ],
-        parameters=[],
+        parameters=[
+            ParameterSchema(
+                key="weights",
+                label="Model Weights",
+                value=EnumParameterDescriptor(
+                    enum_vals=[
+                        EnumVal(key="gans", label="GANS"),
+                        EnumVal(key="psnr-large", label="PSNR Large"),
+                        EnumVal(key="psnr-small", label="PSNR Small"),
+                        EnumVal(key="noise-cancel", label="Noise Cancel"),
+                    ],
+                    default="gans",
+                )            
+            ),
+            ParameterSchema(
+                key="scale",
+                label="Scale Factor",
+                value=RangedFloatParameterDescriptor(
+                    range=FloatRangeDescriptor(min=1.0, max=4.0),
+                    default=4.0,
+                ),
+            ),
+        ],
     )
 
 
@@ -44,14 +71,20 @@ class Inputs(TypedDict):
 
 
 class Parameters(TypedDict):
-    pass
+    weights: str
+    scale: float
 
 
 @server.route("/super-resolution", task_schema_func=create_task_schema, short_title="Super Resolution")
 def super_resolution(inputs: Inputs, parameters: Parameters) -> ResponseBody:
     results = [
         FileResponse(title=res["file_path"], path=res["result"], file_type=FileType.IMG)
-        for res in model.predict(inputs["input_images"].files, inputs["output_directory"].path)
+        for res in model.predict(
+            inputs["input_images"].files,
+            inputs["output_directory"].path,
+            weights=parameters["weights"],
+            scale=parameters["scale"]
+        )
     ]
 
     return ResponseBody(root=BatchFileResponse(files=results))
