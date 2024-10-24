@@ -29,7 +29,7 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
     Make sure you are in the root directory, and run this command:
 
     ```bash
-    python3 cli.py super-resolution --input_images input/baboon.png input/meerkat.png input/street.png --output_directory output --weights gans --scale 4.0
+    python3 cli.py super-resolution --input_images input/baboon.png input/meerkat.png --output_directory output --weights gans --scale 4.0
     ```
 
     Note that you can change these CLI arguments as needed:
@@ -37,3 +37,6 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
     - `output_directory`: Path to a directory where the upscaled images should be stored.
     - `weights`: Refers to the model weights to use to upscale your images. Must be one of `gans`, `psnr-small`, `psnr-large`, or `noise-cancel`.
     - `scale`: Refers to how much bigger your image should be. Must be between 1.0 and 4.0 (inclusive).
+
+    **Sample Results**:
+    ![Sample CLI Run](assets/sample_cli_run.png)
