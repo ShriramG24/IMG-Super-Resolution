@@ -1,5 +1,7 @@
 # IMG Super Resolution
 
+![Sample CLI Run](assets/sample_cli_run.png)
+
 This simple project aims to utilize an existing state-of-the-art pre-trained model to upscale low-resolution images to a higher resolution, which is known in the computer vision community as **image super resolution**. The model used here is a Residual-in-Residual Dense Network (RRDN), which is based on an ESRGAN architecture. More about the specific implementation in this project can be found in the following [repository](https://github.com/idealo/image-super-resolution).
 
 ## Installation Instructions
@@ -37,6 +39,3 @@ Make sure you have Python3 installed. Before installing dependencies, you may wa
     - `output_directory`: Path to a directory where the upscaled images should be stored.
     - `weights`: Refers to the model weights to use to upscale your images. Must be one of `gans`, `psnr-small`, `psnr-large`, or `noise-cancel`.
     - `scale`: Refers to how much bigger your image should be. Must be between 1.0 and 4.0 (inclusive).
-
-    **Sample Results**:
-    ![Sample CLI Run](assets/sample_cli_run.png)
