@@ -1,5 +1,5 @@
 from typing import TypedDict
-from flask_ml.flask_ml_server import MLServer
+from flask_ml.flask_ml_server import MLServer, load_file_as_string
 from flask_ml.flask_ml_server.models import (
     FileResponse,
     ResponseBody,
@@ -22,6 +22,12 @@ from .super_resolution import SuperResolution
 model = SuperResolution()
 server = MLServer(__name__)
 
+server.add_app_metadata(
+    name="Image Super Resolution",
+    author="Mr Bob",
+    version="1.0.0",
+    info=load_file_as_string("src/info/server_info.md"),
+)
 
 def create_task_schema() -> TaskSchema:
     return TaskSchema(
