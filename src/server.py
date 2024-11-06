@@ -35,7 +35,7 @@ def create_task_schema() -> TaskSchema:
             InputSchema(
                 input_type=InputType.BATCHFILE,
                 key="input_images",
-                subtitle="Images to be upscaled",
+                subtitle="Images to be Upscaled",
                 label="Input Images",
             ),
             InputSchema(
@@ -97,4 +97,4 @@ def super_resolution(inputs: Inputs, parameters: Parameters) -> ResponseBody:
 
 
 if __name__ == "__main__":
-    server.run(host="0.0.0.0", port=5001)
+    server.run(host="0.0.0.0", port=5000)

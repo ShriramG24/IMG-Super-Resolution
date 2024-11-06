@@ -20,8 +20,7 @@ class SuperResolution:
             new_w, new_h = int(lr_img.shape[1] * scale), int(lr_img.shape[0] * scale)
             sr_img = Image.fromarray(model.predict(lr_img)).resize((new_w, new_h))
 
-            name = img.path.split("/")[-1]
-            name, ext = name.split(".")
+            name, ext = os.path.basename(img.path).split(".")
             sr_img.save(f"{output_dir}/{name}_hr.{ext}")
             results.append(
                 {"file_path": img.path, "result": f"{output_dir}/{name}_hr.{ext}"}
