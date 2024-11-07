@@ -1,7 +1,7 @@
 from flask_ml.flask_ml_client import MLClient
 from flask_ml.flask_ml_server.models import Input, BatchFileInput
 
-ISR_MODEL_URL = "http://localhost:5001/super-resolution"
+ISR_MODEL_URL = "http://localhost:5000/super-resolution"
 
 client = MLClient(ISR_MODEL_URL)
 
